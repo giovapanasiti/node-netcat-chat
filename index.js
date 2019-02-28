@@ -55,7 +55,7 @@ server.on('connection', socket => {
         if (socket.id == key) return
         cs.write('###################\n')
         cs.write('###################\n')
-        cs.write(`Connesso ${socket.name}\n`)
+        cs.write(`Connesso ${socket.name} \u0007 \n`)
         cs.write('IP: ' +  socket.address + '\n')
         cs.write('###################\n')
         cs.write('###################\n')
@@ -66,7 +66,7 @@ server.on('connection', socket => {
     // Manad un messaggio a tutti ogni volta che si ricevono dei dati
     Object.entries(sockets).forEach(([key, cs]) => {
       if (socket.id == key) return // non mandare niente a chi ha inviato il messaggio
-      cs.write('== ' + timestamp() + ' ' + socket.name + ' :    ')
+      cs.write('== ' + timestamp() + ' ' + socket.name + ' :  \u0007')
       cs.write(data)
     })
   })
@@ -77,7 +77,7 @@ server.on('connection', socket => {
       if (socket.id == key) return
       cs.write('###################\n')
       cs.write('###################\n')
-      cs.write(`Disconnesso ${socket.name}\n`)
+      cs.write(`Disconnesso ${socket.name} \n`)
       cs.write('###################\n')
       cs.write('###################\n')
     })
